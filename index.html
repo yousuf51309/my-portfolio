@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Marketing Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
+        a{text-decoration:none;color:inherit}
+        ul{list-style:none}
+
+        /* NAVBAR */
+        .navbar{position:fixed;top:0;width:100%;padding:15px 50px;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05)}
+        .logo{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#6366f1,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .nav-links{display:flex;gap:25px;align-items:center}
+        .nav-links a{font-size:0.82rem;font-weight:500;color:#a0a0a0;transition:color 0.3s;letter-spacing:0.5px;text-transform:uppercase}
+        .nav-links a:hover{color:#a855f7}
+        .nav-links .admin-btn{background:linear-gradient(135deg,#6366f1,#a855f7);color:#fff;padding:8px 18px;border-radius:50px;font-size:0.78rem;font-weight:600}
+        .nav-links .admin-btn:hover{opacity:0.85;color:#fff}
+        .hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+        .hamburger span{width:25px;height:2px;background:#fff;transition:0.3s}
+
+        /* HERO */
+        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;position:relative}
+        .hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,0.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%}
+        .hero-content{position:relative;z-index:1;max-width:850px}
+        .hero-badge{display:inline-block;padding:8px 20px;border:1px solid rgba(139,92,246,0.4);border-radius:50px;font-size:0.85rem;color:#a855f7;margin-bottom:30px;background:rgba(139,92,246,0.08)}
+        .hero h1{font-size:3.5rem;font-weight:900;line-height:1.1;margin-bottom:25px}
+        .hero h1 .gradient-text{background:linear-gradient(135deg,#6366f1,#8b5cf6,#a855f7,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero p{font-size:1.1rem;color:#888;line-height:1.8;margin-bottom:40px;max-width:650px;margin-left:auto;margin-right:auto}
+        .hero-buttons{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+        .btn-primary{padding:14px 35px;background:linear-gradient(135deg,#6366f1,#a855f7);border:none;border-radius:50px;color:#fff;font-size:0.95rem;font-weight:600;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s;display:inline-block}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(139,92,246,0.4)}
+        .btn-secondary{padding:14px 35px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:50px;color:#fff;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-block}
+        .btn-secondary:hover{border-color:#a855f7;color:#a855f7}
+
+        /* SECTIONS */
+        section{padding:100px 60px}
+        .section-label{font-size:0.85rem;color:#a855f7;text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:15px}
+        .section-title{font-size:2.5rem;font-weight:800;margin-bottom:20px}
+        .section-desc{color:#888;font-size:1.05rem;line-height:1.8;max-width:650px;margin-bottom:50px}
+        .center-text{text-align:center}
+        .center-text .section-desc{margin-left:auto;margin-right:auto}
+
+        /* ABOUT */
+        .about{background:#0f0f0f}
+        .about-intro{max-width:900px;margin-bottom:50px}
+        .about-intro p{color:#bbb;line-height:1.9;font-size:1.02rem;margin-bottom:15px}
+        .about-intro .highlight{color:#a855f7;font-weight:600}
+        .about-category{margin-bottom:45px}
+        .about-category h3{font-size:1.3rem;font-weight:700;margin-bottom:20px;color:#e0e0e0;display:flex;align-items:center;gap:10px}
+        .about-category h3 i{color:#a855f7}
+        .about-items{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+        .about-item{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:25px;transition:all 0.3s}
+        .about-item:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-3px);background:rgba(139,92,246,0.04)}
+        .about-item h4{font-size:1rem;font-weight:700;margin-bottom:8px;color:#e0e0e0}
+        .about-item p{color:#888;font-size:0.88rem;line-height:1.7}
+        .about-goal{margin-top:40px;padding:30px;background:linear-gradient(135deg,rgba(99,102,241,0.08),rgba(168,85,247,0.08));border:1px solid rgba(139,92,246,0.2);border-radius:16px}
+        .about-goal p{color:#ccc;line-height:1.8;font-size:0.98rem;font-style:italic}
+
+        /* SERVICES */
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+        .service-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:40px 30px;transition:all 0.4s;position:relative;overflow:hidden}
+        .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#6366f1,#a855f7);opacity:0;transition:opacity 0.4s}
+        .service-card:hover{transform:translateY(-8px);border-color:rgba(139,92,246,0.3);background:rgba(139,92,246,0.05)}
+        .service-card:hover::before{opacity:1}
+        .service-icon{width:55px;height:55px;border-radius:14px;background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(168,85,247,0.15));display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#a855f7;margin-bottom:25px}
+        .service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:12px}
+        .service-card p{color:#888;font-size:0.9rem;line-height:1.7}
+
+        /* PORTFOLIO */
+        .portfolio{background:#0f0f0f}
+        .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px}
+        .portfolio-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:20px;overflow:hidden;transition:all 0.4s}
+        .portfolio-card:hover{transform:translateY(-5px);border-color:rgba(139,92,246,0.3)}
+        .portfolio-img{width:100%;height:200px;background:linear-gradient(135deg,#1a1a2e,#16213e);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(139,92,246,0.3)}
+        .portfolio-info{padding:25px}
+        .portfolio-info h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+        .portfolio-info p{color:#888;font-size:0.88rem;line-height:1.6;margin-bottom:15px}
+        .portfolio-tags{display:flex;gap:8px;flex-wrap:wrap}
+        .portfolio-tags span{padding:4px 12px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);border-radius:50px;font-size:0.75rem;color:#a855f7}
+
+        /* REVIEWS */
+        .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+        .review-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:35px;transition:all 0.3s}
+        .review-card:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-3px)}
+        .review-stars{color:#f59e0b;margin-bottom:15px;font-size:0.9rem}
+        .review-card p{color:#aaa;font-size:0.92rem;line-height:1.8;margin-bottom:20px;font-style:italic}
+        .review-author{display:flex;align-items:center;gap:12px}
+        .review-avatar{width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#a855f7);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem}
+        .review-author-info h4{font-size:0.95rem;font-weight:600}
+        .review-author-info span{font-size:0.8rem;color:#888}
+
+        /* CONTACT */
+        .contact{background:#0f0f0f}
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:1000px;margin:0 auto}
+        .contact-info h3{font-size:1.3rem;font-weight:700;margin-bottom:20px}
+        .contact-info p{color:#888;line-height:1.8;margin-bottom:30px}
+        .contact-detail{display:flex;align-items:center;gap:15px;margin-bottom:20px}
+        .contact-detail i{width:45px;height:45px;border-radius:12px;background:rgba(139,92,246,0.1);display:flex;align-items:center;justify-content:center;color:#a855f7;font-size:1rem}
+        .contact-detail div span{font-size:0.8rem;color:#888;display:block}
+        .contact-detail div a,.contact-detail div p{color:#ddd;font-size:0.95rem;margin:0}
+        .contact-form{display:flex;flex-direction:column;gap:15px}
+        .contact-form input,.contact-form textarea{padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.3s}
+        .contact-form input:focus,.contact-form textarea:focus{border-color:#a855f7}
+        .contact-form textarea{height:120px;resize:vertical}
+        .social-links{display:flex;gap:12px;margin-top:25px}
+        .social-links a{width:45px;height:45px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#aaa;transition:all 0.3s}
+        .social-links a:hover{border-color:#a855f7;color:#a855f7;background:rgba(139,92,246,0.1);transform:translateY(-3px)}
+
+        /* FOOTER */
+        footer{text-align:center;padding:30px;color:#555;font-size:0.85rem;border-top:1px solid rgba(255,255,255,0.05)}
+
+        /* ANIMATIONS */
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            .navbar{padding:15px 20px}
+            .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,0.97);flex-direction:column;padding:20px;gap:18px;border-bottom:1px solid rgba(255,255,255,0.05)}
+            .nav-links.active{display:flex}
+            .hamburger{display:flex}
+            .hero h1{font-size:2rem}
+            section{padding:60px 20px}
+            .about-items{grid-template-columns:1fr}
+            .contact-grid{grid-template-columns:1fr}
+            .section-title{font-size:1.8rem}
+            .portfolio-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">YourName.</div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#services">My Service</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#reviews">Client Review</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="/admin/" class="admin-btn"><i class="fas fa-lock"></i> Admin</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-badge">🚀 Available for Projects</div>
+        <h1>I Drive Growth With<br><span class="gradient-text">Data-Driven Ads & Tracking</span></h1>
+        <p>Performance Marketing Specialist helping brands maximize ROI through precision advertising across Meta, TikTok & Google — powered by bulletproof tracking infrastructure.</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Let's Work Together</a>
+            <a href="#services" class="btn-secondary">View Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT ME -->
+<section class="about" id="about">
+    <div class="section-label fade-in">About Me</div>
+    <h2 class="section-title fade-in">Performance Marketing Specialist</h2>
+
+    <div class="about-intro fade-in">
+        <p>I'm a <span class="highlight">Performance Marketing Specialist</span> focused on driving measurable growth and maximizing ROI through data-driven strategy and precise tracking infrastructure. From running paid campaigns across multiple platforms to building end-to-end tracking systems, I manage the entire funnel — from ad spend to accurate conversion data.</p>
+    </div>
+
+    <!-- Paid Advertising -->
+    <div class="about-category fade-in">
+        <h3><i class="fas fa-bullhorn"></i> Paid Advertising Expertise</h3>
+        <div class="about-items">
+            <div class="about-item">
+                <h4><i class="fab fa-facebook" style="color:#a855f7"></i> Facebook Ads Campaigns</h4>
+                <p>Audience research, creative testing, and budget optimization to build high-converting campaigns.</p>
+            </div>
+            <div class="about-item">
+                <h4><i class="fab fa-instagram" style="color:#a855f7"></i> Instagram Ads</h4>
+                <p>Full-funnel campaign management from brand awareness to conversion.</p>
+            </div>
+            <div class="about-item">
+                <h4><i class="fab fa-tiktok" style="color:#a855f7"></i> TikTok Ads</h4>
+                <p>Trend-driven creative strategy and campaign setup targeting younger, high-engagement audiences.</p>
+            </div>
+            <div class="about-item">
+                <h4><i class="fab fa-google" style="color:#a855f7"></i> Google Ads</h4>
+                <p>Driving high-intent traffic through Search, Display, Shopping, and Performance Max campaigns.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tracking & Analytics -->
+    <div class="about-category fade-in">
+        <h3><i class="fas fa-chart-line"></i> Tracking & Analytics Expertise</h3>
+        <div class="about-items">
+            <div class="about-item">
+                <h4><i class="fas fa-bullseye" style="color:#a855f7"></i> Facebook Pixel</h4>
+                <p>Accurate event tracking setup to ensure reliable conversion data.</p>
+            </div>
+            <div class="about-item">
+                <h4><i class="fas fa-tags" style="color:#a855f7"></i> Google Tag Manager (GTM)</h4>
+                <p>Managing complex tags, triggers, and variables without touching backend code.</p>
+            </div>
+            <div class="about-item">
+                <h4><i class="fas fa-chart-bar" style="color:#a855f7"></i> GA4 (Google Analytics 4)</h4>
+                <p>User behavior analysis, custom event tracking, and reporting dashboards.</p>
+            </div>
+            <div class="about-item">
+                <h4><i class="fas fa-server" style="color:#a855f7"></i> Server-Side Tracking</h4>
+                <p>Implementing Conversion API and Server-Side GTM to reduce data loss and improve attribution accuracy in the post-iOS 14 and cookie-restricted era.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Goal -->
+    <div class="about-goal fade-in">
+        <p>💡 "My goal isn't just to run campaigns — it's to build a complete tracking and analytics ecosystem that accurately measures every ad dollar's performance and enables truly data-driven decision-making."</p>
+    </div>
+</section>
+
+<!-- MY SERVICES -->
+<section class="services" id="services">
+    <div class="center-text">
+        <div class="section-label fade-in">What I Do</div>
+        <h2 class="section-title fade-in">My Services</h2>
+        <p class="section-desc fade-in">From launching high-converting campaigns to building bulletproof tracking systems — I handle the full stack of paid media and data infrastructure.</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card fade-in">
+            <div class="service-icon"><i class="fab fa-facebook-f"></i></div>
+            <h3>Facebook Ads</h3>
+            <p>Strategic campaign creation, audience targeting, A/B testing, and scaling for maximum ROAS.</p>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon"><i class="fab fa-instagram"></i></div>
+            <h3>Instagram Ads</h3>
+            <p>Visually compelling ad creatives and story-driven campaigns that engage and convert.</p>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon"><i class="fab fa-tiktok"></i></div>
+            <h3>TikTok Ads</h3>
+            <p>Trend-driven ad strategies to capture attention and generate conversions at scale.</p>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon"><i class="fab fa-google"></i></div>
+            <h3>Google Ads</h3>
+            <p>Search, Display, Shopping & Performance Max campaigns optimized for high-value conversions.</p>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>Facebook Pixel Setup</h3>
+            <p>Accurate event tracking and Conversion API setup for reliable conversion data.</p>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon"><i class="fas fa-tags"></i></div>
+            <h3>Google Tag Manager</h3>
+            <p>Complex tag management, triggers, variables, and data layer implementation.</p>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+            <h3>GA4 Analytics</h3>
+            <p>Custom event tracking, user behavior analysis, and reporting dashboards.</p>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon"><i class="fas fa-server"></i></div>
+            <h3>Server-Side Tracking</h3>
+            <p>Future-proof tracking with server-side GTM and Conversion API to beat iOS restrictions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+    <div class="center-text">
+        <div class="section-label fade-in">My Work</div>
+        <h2 class="section-title fade-in">Portfolio</h2>
+        <p class="section-desc fade-in">A showcase of campaigns and tracking systems I've built for clients.</p>
+    </div>
+    <div class="portfolio-grid">
+        <div class="portfolio-card fade-in">
+            <div class="portfolio-img"><i class="fas fa-shopping-cart"></i></div>
+            <div class="portfolio-info">
+                <h3>E-Commerce Scaling Campaign</h3>
+                <p>Scaled a Shopify store from $5K to $50K/month revenue using Facebook & Instagram ads with server-side tracking.</p>
+                <div class="portfolio-tags">
+                    <span>Facebook Ads</span><span>Pixel</span><span>Server-Side</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-card fade-in">
+            <div class="portfolio-img"><i class="fas fa-graduation-cap"></i></div>
+            <div class="portfolio-info">
+                <h3>EdTech Lead Generation</h3>
+                <p>Generated 2,000+ qualified leads per month using Google Ads and TikTok Ads with full GA4 tracking.</p>
+                <div class="portfolio-tags">
+                    <span>Google Ads</span><span>TikTok Ads</span><span>GA4</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-card fade-in">
+            <div class="portfolio-img"><i class="fas fa-heartbeat"></i></div>
+            <div class="portfolio-info">
+                <h3>Health Brand Tracking Setup</h3>
+                <p>Built complete tracking infrastructure with GTM, GA4, and Server-Side GTM for accurate attribution.</p>
+                <div class="portfolio-tags">
+                    <span>GTM</span><span>GA4</span><span>Server-Side</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLIENT REVIEWS -->
+<section class="reviews" id="reviews">
+    <div class="center-text">
+        <div class="section-label fade-in">Testimonials</div>
+        <h2 class="section-title fade-in">Client Reviews</h2>
+        <p class="section-desc fade-in">What my clients say about working with me.</p>
+    </div>
+    <div class="reviews-grid">
+        <div class="review-card fade-in">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Absolutely transformed our ad performance. The tracking setup alone saved us thousands in wasted spend. Highly recommended!"</p>
+            <div class="review-author">
+                <div class="review-avatar">A</div>
+                <div class="review-author-info">
+                    <h4>Ahmed Khan</h4>
+                    <span>CEO, TechStore BD</span>
+                </div>
+            </div>
+        </div>
+        <div class="review-card fade-in">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"The server-side tracking setup was a game changer. Our data accuracy went from 60% to 95%. Incredible work!"</p>
+            <div class="review-author">
+                <div class="review-avatar">S</div>
+                <div class="review-author-info">
+                    <h4>Sarah Mitchell</h4>
+                    <span>Marketing Director, GrowthLab</span>
+                </div>
+            </div>
+        </div>
+        <div class="review-card fade-in">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Best TikTok ads specialist we've worked with. Understood our audience perfectly and delivered amazing ROAS."</p>
+            <div class="review-author">
+                <div class="review-avatar">R</div>
+                <div class="review-author-info">
+                    <h4>Rafiq Hasan</h4>
+                    <span>Founder, StyleHub</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="center-text">
+        <div class="section-label fade-in">Get In Touch</div>
+        <h2 class="section-title fade-in">Contact Us</h2>
+        <p class="section-desc fade-in">Have a project in mind? Let's discuss how I can help scale your business.</p>
+    </div>
+    <div class="contact-grid">
+        <div class="contact-info fade-in">
+            <h3>Let's Build Something Great</h3>
+            <p>Whether you need high-converting ad campaigns or a bulletproof tracking setup — I'm here to help you grow with data.</p>
+            <div class="contact-detail">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <span>Email</span>
+                    <a href="mailto:your@email.com">your@email.com</a>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <span>Phone</span>
+                    <a href="tel:+8801XXXXXXXXX">+880 1XXX-XXXXXX</a>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <span>Location</span>
+                    <p>Dhaka, Bangladesh</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <form class="contact-form fade-in" name="contact" method="POST" data-netlify="true">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary" style="border:none;text-align:center">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 YourName. All rights reserved. | Performance Marketing Specialist</p>
+</footer>
+
+<script>
+    const hamburger=document.getElementById('hamburger');
+    const navLinks=document.getElementById('navLinks');
+    hamburger.addEventListener('click',()=>navLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>navLinks.classList.remove('active')));
+    const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    window.addEventListener('scroll',()=>{const n=document.querySelector('.navbar');n.style.background=window.scrollY>50?'rgba(10,10,10,0.95)':'rgba(10,10,10,0.85)'});
+</script>
+
+</body>
+</html>
