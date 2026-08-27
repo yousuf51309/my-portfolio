@@ -1,0 +1,23 @@
+---
+title: "Performance Marketing Specialist"
+intro: "I'm a Performance Marketing Specialist focused on driving measurable growth and maximizing ROI through data-driven strategy and precise tracking infrastructure."
+paid_ads:
+  - name: "Facebook Ads Campaigns"
+    description: "Audience research, creative testing, and budget optimization to build high-converting campaigns."
+  - name: "Instagram Ads"
+    description: "Full-funnel campaign management from brand awareness to conversion."
+  - name: "TikTok Ads"
+    description: "Trend-driven creative strategy and campaign setup targeting younger, high-engagement audiences."
+  - name: "Google Ads"
+    description: "Driving high-intent traffic through Search, Display, Shopping, and Performance Max campaigns."
+tracking:
+  - name: "Facebook Pixel"
+    description: "Accurate event tracking setup to ensure reliable conversion data."
+  - name: "Google Tag Manager (GTM)"
+    description: "Managing complex tags, triggers, and variables without touching backend code."
+  - name: "GA4 (Google Analytics 4)"
+    description: "User behavior analysis, custom event tracking, and reporting dashboards."
+  - name: "Server-Side Tracking"
+    description: "Implementing Conversion API and Server-Side GTM to reduce data loss and improve attribution accuracy."
+goal: "My goal isn't just to run campaigns — it's to build a complete tracking and analytics ecosystem that accurately measures every ad dollar's performance and enables truly data-driven decision-making."
+---
